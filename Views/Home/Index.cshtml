@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h2>Register</h2>
+    <form action="/register" method="post">
+        <ul>
+            <li>UserName: <input type="text" name="username"></li>
+            <li>First Name: <input type="text" name="first_name"></li>
+            <li>Last Name: <input type="text" name="last_name"></li>
+            <li>Password: <input type="password" name="password"></li>
+            <li>Confirm Password: <input type="password" name="c_password"></li>
+            <li><input type="submit" value="Register"></li>
+        </ul>
+    </form>
+    <div>
+    @{
+        foreach(var error in ViewBag.errors)
+            {
+                //If there are any errors for a field...
+                if(@error.Errors.Count > 0)
+                {
+                    // We show the first error for that field
+                    <p>@error.Errors[0].ErrorMessage</p>
+                }
+            }
+    }
+</div>
+</div>
+<div>
+    <h2>Login</h2>
+    <form action="/login" method="post">
+        <ul>
+            <li>UserName: <input type="text" name="username"></li>
+            <li>Password: <input type="password" name="password"></li>
+            <li><input type="submit" value="Login"></li>
+        </ul>
+    </form>
+    <p>@ViewBag.loginerrors</p>
+</div>

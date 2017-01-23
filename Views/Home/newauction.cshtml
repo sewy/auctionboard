@@ -1,0 +1,23 @@
+<p><a href="/auctions">Home</a> | <a href="/logout">Log Out</a></p>
+<h1>New Auction</h1>
+<form action="/createauction" method="post">
+    <ul>
+        <li>Product Name: <input type="text" name="name"></li>
+        <li>Starting Bid: <input type="number" name="bid"></li>
+        <li>End Date: <input type="date" name="end_date" min="2016-10-21"></li>
+        <li>Description:</li>
+        <li><textarea name="description" cols="50" rows="7"></textarea></li>
+        <li><input type="submit" value="Create Auction"></li>
+    </ul>
+</form>
+@{
+        foreach(var error in ViewBag.errors)
+            {
+                //If there are any errors for a field...
+                if(@error.Errors.Count > 0)
+                {
+                    // We show the first error for that field
+                    <p>@error.Errors[0].ErrorMessage</p>
+                }
+            }
+    }

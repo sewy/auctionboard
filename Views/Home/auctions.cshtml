@@ -1,0 +1,34 @@
+<h1>Current Auctions</h1>
+<p>Hi @ViewBag.user.first_name ! | <a href="/logout">Log Out</a></p>
+<table>
+    <tr>
+        <th>Product</th>
+        <th>Seller</th>
+        <th>Top Bid</th>
+        <th>Time Remaining</th>
+        <th> </th>
+    </tr>
+    @{
+        foreach(var auction in ViewBag.auctions)
+        {
+            <tr>
+                <td><a href="/auction/@auction.id">@auction.name</a></td>
+                <td>@auction.first_name</td>
+                <td>$@auction.bid</td>
+                <td>@auction.converted</td>
+                @if(auction.user_id == ViewBag.user.id)
+                {
+                    <td>
+                        <form action="/delete/@auction.id" method="post">
+                            <button type="submit">Delete</button>
+                        </form>    
+                    </td>
+                }
+            </tr>
+        }
+    }
+</table>
+<form action="/newauction" method="get">
+    <button type="submit">New Auction</button>
+</form>
+<p>Your Current Wallet: $@ViewBag.user.money</p>

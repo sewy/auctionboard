@@ -1,0 +1,17 @@
+
+<p><a href="/auctions">Home</a> | <a href="/logout">Log Out</a></p>
+<h1>@ViewBag.auction.name</h1>
+<hr>
+<p>Created By: @ViewBag.auction.first_name</p>
+<p>Time Remaining: @ViewBag.auction.converted</p>
+<p>@ViewBag.auction.description</p>
+<hr>
+<p>Current Highest Bid: $@ViewBag.auction.bid</p>
+<p>By Mr. @ViewBag.bidder.first_name @ViewBag.bidder.last_name</p>
+<hr>
+<form action="/bid/@ViewBag.auction.id" method="post">
+    <ul>
+        <li><input type="number" name="bid" placeholder="Your Bid goes here..." min="@ViewBag.auction.bid"></li>
+        <li><input type="submit" value="Bid!"></li>
+    </ul>
+</form>

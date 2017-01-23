@@ -1,0 +1,12 @@
+/*Write all of your CSS here*/
+ul{
+    list-style: none;
+}
+th{
+    padding: 10px;
+    text-align: center;
+}
+td{
+    padding: 10px;
+    text-align: center;
+}
